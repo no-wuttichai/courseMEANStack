@@ -1,0 +1,81 @@
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-info"><i class="fas fa-box-open"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Stock</span>
+                        <span class="info-box-number">{{ mDataArray.length }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-warning"><i class="fas fa-exclamation-triangle"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Defect</span>
+                        <span class="info-box-number">0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-maroon"><i class="fas fa-minus-circle"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Sold out</span>
+                    <span class="info-box-number">{{ outofStock() }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row card-body-header">
+                            <div class="col-5">
+                                <input (keyup)="mTextSearch.next($event.target.value)" class="form-control input-lg" placeholder="Enter search keyword">
+                            </div>
+                            <div class="col-7">
+                                <a [routerLink]="['/stock/create']" class="btn btn-success float-right btn-add">เพิ่ม</a>
+                            </div>
+                        </div>
+
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">ID</th>
+                                    <th>NAME</th>
+                                    <th>PRICE</th>
+                                    <th>STOCK</th>
+                                    <th class="text-center">ACTION</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of mDataArray">
+                                    <td class="text-center">XXXX</td>
+                                    <td>
+                                        <img class="product_image border" />
+                                        <strong class="product_name">XXXX</strong>
+                                    </td>
+                                    <td>฿ {{ 150000 | number:'1.0-2' }}</td>
+                                    <td>XXX PCS.</td>
+                                    <td class="text-center">
+                                        <img (click)="onClickEdit(112)" src="assets/images/ic_edit.png" class="edit_product">
+                                        <img (click)="onClickDelete(112)" src="assets/images/ic_delete.png" class="delete_product">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
