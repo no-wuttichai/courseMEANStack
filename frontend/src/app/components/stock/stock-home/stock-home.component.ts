@@ -11,6 +11,7 @@ import { debounceTime } from "rxjs/operators";
 export class StockHomeComponent implements OnInit {
 
   mDataArray = [11, 22, 33, 44, 55, 66];
+
   mTextSearch = new Subject<string>();
 
   constructor(private router: Router) { }
