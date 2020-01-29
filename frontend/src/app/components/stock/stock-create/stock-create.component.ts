@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
 import { Location } from '@angular/common';
+import { StockEditComponent } from '../stock-edit/stock-edit.component';
 
 @Component({
   selector: 'app-stock-create',
@@ -22,7 +23,9 @@ export class StockCreateComponent implements OnInit {
   }
 
   onSubmit() {
-    alert(this.mProduct.name);
+    // alert(this.mProduct.name);
+    console.log(this.mProduct);
+
   }
 
   onCancel() {

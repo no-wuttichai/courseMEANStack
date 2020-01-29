@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { Product } from 'src/app/models/product.model';
+import { StockCreateComponent } from '../stock-create/stock-create.component';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-stock-edit',
@@ -8,12 +12,24 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class StockEditComponent implements OnInit {
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  mProduct = new Product();
+  imageSrc: string | ArrayBuffer;
+
+  constructor(private activatedRoute: ActivatedRoute, private location: Location) { 
+    
+  }
 
   ngOnInit() {
+
+    console.log(this.mProduct.name);
+    
     this.activatedRoute.params.subscribe(params => {
-      alert(params.id);
+      // alert(params.id);
     });
+  }
+
+  onCancel() {
+    this.location.back();
   }
 
 }

@@ -9,6 +9,8 @@ export class AuthService {
 
   constructor(private router: Router) { }
 
+  mainTest
+
   isLogin() {
     return localStorage.getItem(environment.keyLocalAuthenInfo);
   }
