@@ -72,7 +72,7 @@ uploadImage = async (files) => {
     var fileName
     const image = files.image
     if (image && image.size > 0) {
-        const fileExtention = image.name.split('.')[1]
+        const fileExtention = image.name.split('.')[image.name.length - 1]
         fileName = `${uuidv1()}.${fileExtention}`
         const oldpath = image.path
         const newpath = `${__dirname}/uploaded/images/${fileName}`
