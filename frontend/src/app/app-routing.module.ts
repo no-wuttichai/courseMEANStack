@@ -6,6 +6,7 @@ import { StockHomeComponent } from './components/stock/stock-home/stock-home.com
 import { StockEditComponent } from './components/stock/stock-edit/stock-edit.component';
 import { StockCreateComponent } from './components/stock/stock-create/stock-create.component';
 import { AuthGuard } from './services/auth.guard';
+import { ShopHomeComponent } from './components/shop/shop-home/shop-home.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
       { path: 'edit/:id', component: StockEditComponent },
     ], canActivate: [AuthGuard]
   },
+  { path: 'shop', component: ShopHomeComponent },
   { path: '**', redirectTo: 'login' },
 ];
 
