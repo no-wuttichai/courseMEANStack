@@ -19,7 +19,8 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Name</label>
-                                            <input name="name" [(ngModel)]="mProduct.name" type="text" class="form-control">
+                                            <input name="name" [(ngModel)]="mProduct.name" type="text"
+                                                class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -27,20 +28,23 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Price</label>
-                                            <input name="price" [(ngModel)]="mProduct.price" type="number" class="form-control">
+                                            <input name="price" [(ngModel)]="mProduct.price" type="number"
+                                                class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Stock</label>
-                                            <input name="stock" [(ngModel)]="mProduct.stock" type="number" class="form-control">
+                                            <input name="stock" [(ngModel)]="mProduct.stock" type="number"
+                                                class="form-control">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <button (click)="onSubmit()" type="submit" class="btn btn-primary float-right">Submit</button>
+                                <button (click)="onSubmit()" type="submit" class="btn btn-primary float-right"><i class="fa fa-save"></i> Submit</button>
                                 <button (click)="onCancel()" class="btn btn-default">Cancel</button>
+                                <button (click)="onCancel()" class="btn btn-danger ml-2"><i class="fa fa-trash"></i> Delete</button>
                             </div>
                         </form>
                     </div>
@@ -49,13 +53,14 @@
                     <div class="card card-primary">
                         <div class="card-body">
                             <div class="form-group">
-                                <input id="upload" class="pic-upload" accept="image/*" type="file">
+                                <input (change)="onUpload($event)" id="upload" class="pic-upload" accept="image/*"
+                                    type="file">
                                 <a class="btn btn-app btn-block"
                                     onclick="document.getElementById('upload').click(); return false">
                                     <i class="far fa-image"></i>Upload image
                                 </a>
                             </div>
-                        <img class="img-preview border" *ngIf="imageSrc" [src]="imageSrc" alt="Photo">
+                            <img class="img-preview border" *ngIf="imageSrc" [src]="imageSrc" alt="Photo">
                         </div>
                     </div>
                 </div>
