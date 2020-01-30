@@ -6,6 +6,10 @@ const uuidv1 = require('uuid/v1')
 const formidable = require('formidable')
 const fs = require('fs-extra')
 
+router.get('/product/images/:name', (req, res) => {
+    res.sendFile(`${__dirname}/uploaded/images/${req.params.name}`)
+})
+
 router.get('/product', jwt.verify, async (req, res) => {
     try {
         let result = await Product.find({}).sort({ product_id: -1 })
@@ -21,7 +25,7 @@ router.get('/product', jwt.verify, async (req, res) => {
 router.get('/product/:id', jwt.verify, async (req, res) => {
     try {
         const id = req.params.id
-        let result = await Product.findOne({ product_id: id }, { stock: 0 })
+        let result = await Product.findOne({ product_id: id })
         if (!result) {
             return res.statusCode(404).json({ result: result, message: "Failure" })
         }
@@ -72,7 +76,7 @@ uploadImage = async (files) => {
     var fileName
     const image = files.image
     if (image && image.size > 0) {
-        const fileExtention = image.name.split('.')[image.name.length - 1]
+        const fileExtention = image.name.split('.')[1]
         fileName = `${uuidv1()}.${fileExtention}`
         const oldpath = image.path
         const newpath = `${__dirname}/uploaded/images/${fileName}`

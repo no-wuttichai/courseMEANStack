@@ -9,13 +9,13 @@ export class AuthService {
 
   constructor(private router: Router) { }
 
-  mainTest
-
   isLogin() {
     return localStorage.getItem(environment.keyLocalAuthenInfo);
   }
 
   login(token: string) {
+    console.log(token, 'token');
+    
     localStorage.setItem(environment.keyLocalAuthenInfo, token);
     this.router.navigate(["/stock"]);
   }

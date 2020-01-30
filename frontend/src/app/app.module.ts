@@ -13,6 +13,8 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 import { StockCreateComponent } from './components/stock/stock-create/stock-create.component';
 import { StockHomeComponent } from './components/stock/stock-home/stock-home.component';
 import { StockEditComponent } from './components/stock/stock-edit/stock-edit.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http"
+import { JWTInterceptor } from './services/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -30,9 +32,10 @@ import { StockEditComponent } from './components/stock/stock-edit/stock-edit.com
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule
   ],
   providers: [
-    
+    { provide: HTTP_INTERCEPTORS, useClass: JWTInterceptor, multi: true },
   ], // services
   bootstrap: [AppComponent] //index.html
 })

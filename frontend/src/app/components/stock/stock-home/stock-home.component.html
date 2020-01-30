@@ -24,7 +24,7 @@
                     <span class="info-box-icon bg-maroon"><i class="fas fa-minus-circle"></i></span>
                     <div class="info-box-content">
                         <span class="info-box-text">Sold out</span>
-                    <span class="info-box-number">{{ outofStock() }}</span>
+                        <span class="info-box-number">{{ outofStock() }}</span>
                     </div>
                 </div>
             </div>
@@ -40,10 +40,12 @@
                     <div class="card-body">
                         <div class="row card-body-header">
                             <div class="col-5">
-                                <input (keyup)="mTextSearch.next($event.target.value)" class="form-control input-lg" placeholder="Enter search keyword">
+                                <input (keyup)="mTextSearch.next($event.target.value)" class="form-control input-lg"
+                                    placeholder="Enter search keyword">
                             </div>
                             <div class="col-7">
-                                <a [routerLink]="['/stock/create']" class="btn btn-success float-right btn-add">เพิ่ม</a>
+                                <a [routerLink]="['/stock/create']"
+                                    class="btn btn-success float-right btn-add">เพิ่ม</a>
                             </div>
                         </div>
 
@@ -59,16 +61,18 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let item of mDataArray">
-                                    <td class="text-center">XXXX</td>
+                                    <td class="text-center">{{ item.product_id }}</td>
                                     <td>
                                         <img class="product_image border" />
-                                        <strong class="product_name">{{ item }}</strong>
+                                        <strong class="product_name">{{ item.name }}</strong>
                                     </td>
-                                    <td>฿ {{ 150000 | number:'1.0-2' }}</td>
-                                    <td>XXX PCS.</td>
+                                    <td>฿ {{ item.price | number:'1.0-2' }}</td>
+                                    <td>{{ item.stock | number:'1.0-0' }} PCS.</td>
                                     <td class="text-center">
-                                        <img (click)="onClickEdit(item)" src="assets/images/ic_edit.png" class="edit_product">
-                                        <img (click)="onClickDelete(item)" src="assets/images/ic_delete.png" class="delete_product">
+                                        <img (click)="onClickEdit(item.product_id)" src="assets/images/ic_edit.png"
+                                            class="edit_product">
+                                        <img (click)="onClickDelete(item.product_id)" src="assets/images/ic_delete.png"
+                                            class="delete_product">
                                     </td>
                                 </tr>
                             </tbody>
