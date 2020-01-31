@@ -18,6 +18,9 @@ import { JWTInterceptor } from './services/jwt.interceptor';
 import { ShopHomeComponent } from './components/shop/shop-home/shop-home.component';
 import { ShopPaymentComponent } from './components/shop/shop-payment/shop-payment.component';
 import { CustomPipe } from './pipes/custom.pipe';
+import { TransactionHomeComponent } from './components/transaction/transaction-home/transaction-home.component';
+import { ChartComponent } from './components/chart/chart.component';
+import { ImageAssetPipe } from './pipes/image-asset.pipe';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,9 @@ import { CustomPipe } from './pipes/custom.pipe';
     ShopHomeComponent,
     ShopPaymentComponent,
     CustomPipe,
+    TransactionHomeComponent,
+    ChartComponent,
+    ImageAssetPipe,
   ],
   imports: [
     BrowserModule,

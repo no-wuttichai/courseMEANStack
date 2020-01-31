@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { ResponseLogin, ResponseRegister } from '../models/user.model';
 import { ProductResponse, Product, ProductResult } from '../models/product.model';
 import { environment } from 'src/environments/environment';
+import { TransactionResponse } from '../models/transaction.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,29 +21,29 @@ export class NetworkService {
     return this.httpClient.post<ResponseRegister>('auth/register', data)
   }
 
-  getProductAll(): Observable<ProductResponse>{
+  getProductAll(): Observable<ProductResponse> {
     return this.httpClient.get<ProductResponse>('product')
   }
 
-  getProductById(id: string): Observable<ProductResponse>{
+  getProductById(id: string): Observable<ProductResponse> {
     return this.httpClient.get<ProductResponse>(`product/${id}`)
   }
 
-  addProduct(data): Observable<ProductResponse>{
+  addProduct(data): Observable<ProductResponse> {
     return this.httpClient.post<ProductResponse>('product', this.makeFormData(data))
   }
 
-  editProduct(id: string, data): Observable<ProductResponse>{
+  editProduct(id: string, data): Observable<ProductResponse> {
     return this.httpClient.put<ProductResponse>(`product/${id}`, this.makeFormData(data))
   }
 
-  deleteProductById(id: string): Observable<ProductResponse>{
+  deleteProductById(id: string): Observable<ProductResponse> {
     return this.httpClient.delete<ProductResponse>(`product/${id}`)
   }
 
   getImage(name: string): string {
     if (!name) {
-      return 'assets/images/no_photo.jpg';
+      return environment.baseUrl + '/assets/images/no_photo.jpg';
     }
     return `${environment.baseAPIURL}v1/product/images/${name}`;
   }
@@ -54,6 +55,14 @@ export class NetworkService {
     form.append("stock", data.stock.toString());
     form.append("image", data.image);
     return form;
+  }
+
+  getTransaction(): Observable<TransactionResponse[]> {
+    return this.httpClient.get<TransactionResponse[]>(`transaction`)
+  }
+
+  getTransactionById(id: string): Observable<TransactionResponse[]> {
+    return this.httpClient.get<TransactionResponse[]>(`transaction/${id}`)
   }
 
 }

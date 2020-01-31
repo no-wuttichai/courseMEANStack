@@ -6,7 +6,7 @@
 </style>
 
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <img src="assets/images/big_banner.jpg" alt="Profile" class="img-fluid">
+    <img src="{{ 'assets/images/big_banner.jpg' | imageAsset }}" alt="Profile" class="img-fluid">
     <div class="sidebar">
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -36,13 +36,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link">
+                    <a [routerLink]="['/transection']" class="nav-link" routerLinkActive="active">
                         <i class="nav-icon fas fa-money-bill"></i>
                         <p>รายการขาย</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link">
+                    <a [routerLink]="['/chart']" class="nav-link" routerLinkActive="active" >
                         <i class="nav-icon fas fa-chart-pie"></i>
                         <p>กราฟ</p>
                     </a>

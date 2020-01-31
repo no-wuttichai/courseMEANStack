@@ -69,9 +69,9 @@
                                     <td>฿ {{ item.price | number:'1.0-2' }}</td>
                                     <td>{{ item.stock | number:'1.0-0' }} PCS.</td>
                                     <td class="text-center">
-                                        <img (click)="onClickEdit(item.product_id)" src="assets/images/ic_edit.png"
+                                        <img (click)="onClickEdit(item.product_id)" src="{{ 'assets/images/ic_edit.png' | imageAsset }}"
                                             class="edit_product">
-                                        <img (click)="onClickDelete(item.product_id)" src="assets/images/ic_delete.png"
+                                        <img (click)="onClickDelete(item.product_id)" src="{{ 'assets/images/ic_delete.png' | imageAsset }}"
                                             class="delete_product">
                                     </td>
                                 </tr>

@@ -1,0 +1,39 @@
+<section class="content pt-4">
+    <div class="container-fluid">
+        <div class="card card-primary">
+            <div class="card-body">
+                <table class="table table-bordered table-striped table-hover table-transactions">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>DATE</th>
+                            <th>TIME</th>
+                            <th>STAFF</th>
+                            <th>CUSTOMER</th>
+                            <th>TOTAL</th>
+                            <th>PAID</th>
+                            <th>#SKU</th>
+                            <th>DISCOUNT</th>
+                            <th>WAY</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let item of mDataArray;">
+                            <td class="transaction-id"><a>TRX: {{ item._id }} </a></td>
+                            <td>{{ item.timestamp }}</td>
+                            <td>{{ item.timestamp }}</td>
+                            <td>{{ item.staff_id }}</td>
+                            <td>GENERAL</td>
+                            <td>{{ item.total }}</td>
+                            <td>{{ item.paid }}</td>
+                            <td>xxxx SKU</td>
+                            <td>xxxx</td>
+                            <td>xxxx</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
