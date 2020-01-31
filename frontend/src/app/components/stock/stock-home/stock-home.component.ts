@@ -34,8 +34,11 @@ export class StockHomeComponent implements OnInit {
     this.networkService.getProductAll().subscribe(
       result => {
         var items = result.result as ProductResult[];
-        this.mDataArray = items
-        this.mSearchArray = items
+        this.mDataArray = items.map(item => {
+          item.image = this.networkService.getImage(item.image);
+          return item;
+        })
+        this.mSearchArray = this.mDataArray
       }, error => {
         Swal.fire(error.error.message)
         // alert(error.error.message)

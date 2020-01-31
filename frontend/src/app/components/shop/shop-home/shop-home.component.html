@@ -96,13 +96,16 @@
                                 class="col-sm-6 col-md-3">
                                 <div class="card card-product">
                                     <div class="thumbnail">
-                                        <!-- <img *ngIf="item.image !== ''" [src]="item.image | imageSecure | async" class="portrait"> -->
                                         <img [src]="item.image" class="portrait">
                                     </div>
-                                    <span
-                                        [ngClass]="[isSelectedItem(item) === true ? 'nprice_tag_selected' :  '', 'nprice_tag', 'product_price']">
+                                    <span [ngClass]="[isSelectedItem(item) === true ? 'nprice_tag_selected' :  '', 'nprice_tag', 'product_price']">
                                         ฿{{ item.price | number: '1.2-2' }}
                                     </span>
+
+                                    <span [ngClass]="[isSelectedItem(item) === true ? 'nprice_tag_selected' : 'nprice_tag', 'border', 'product_price']">
+                                        ฿{{ item.price | number: '1.2-2' }}
+                                    </span>
+
                                 </div>
                             </div>
                         </div>

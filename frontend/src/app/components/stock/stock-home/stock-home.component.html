@@ -63,7 +63,7 @@
                                 <tr *ngFor="let item of mDataArray">
                                     <td class="text-center">{{ item.product_id }}</td>
                                     <td>
-                                        <img class="product_image border" />
+                                        <img [src]="item.image" class="product_image border" height="60" width="60" style="object-fit: cover;" />
                                         <strong class="product_name">{{ item.name }}</strong>
                                     </td>
                                     <td>฿ {{ item.price | number:'1.0-2' }}</td>
